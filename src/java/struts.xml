@@ -1,0 +1,77 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <include file="example.xml"/>
+    <!-- Configuration for the default package. -->
+    <package name="default" extends="struts-default">
+    </package>
+    
+    <package name="actionsupportpackage" extends="struts-default">
+        <interceptors>
+            <interceptor class="interceptor.LoginInterceptor" name="loginInterceptor"></interceptor>
+            <interceptor-stack name="loginStack">
+                <interceptor-ref name="loginInterceptor"/>
+                <interceptor-ref name="defaultStack"/>
+            </interceptor-stack>
+        </interceptors>
+        <global-results>
+            <result name="login" type="redirect">login.jsp</result>
+        </global-results>
+        <action name="admin">
+            <interceptor-ref name="loginStack"/>
+            <result>/WEB-INF/pages/admin.jsp</result>
+        </action>
+        <action name="modify_user_page">
+            <interceptor-ref name="loginStack"/>
+            <result>/WEB-INF/pages/modify_user.jsp</result>
+        </action>  
+        <action name="new_user">
+            <interceptor-ref name="loginStack"/>
+            <result>/WEB-INF/pages/new_user.jsp</result>
+        </action>
+        <action name="teacher">
+            <interceptor-ref name="loginStack"/>
+            <result>/WEB-INF/pages/teacher.jsp</result>
+        </action>
+        
+
+    
+        <action name="login" method="login" class="actionsupportpackage.LoginActionSupport">
+            <result name="admin" type="chain">list_user</result>
+            <result name="teacher" type="chain">teacher</result>
+            <result name="error">login.jsp</result>
+        </action>
+        <action name="logout" method="logout" class="actionsupportpackage.LoginActionSupport">
+            <result name="success">login.jsp</result>
+        </action>
+        
+        <action name="list_user" method="execute" class="actionsupportpackage.UserListActionSupport">
+            <interceptor-ref name="loginStack"/>
+            <result name="success" type="chain">admin</result>
+        </action>
+        
+        <action name="insert_user" method="execute" class="actionsupportpackage.InsertUserActionSupport">
+            <interceptor-ref name="loginStack"/>
+            <result name="success" type="chain">list_user</result>
+            <result name="error" type="chain">new_user</result>
+            <result name="restricted">restricted.jsp</result>
+        </action>
+        
+        <action name="delete_user" method="execute" class="actionsupportpackage.DeleteUserActionSupport">
+            <result name="success" type="chain">list_user</result>
+            <result name="error">login.jsp</result>
+            <result name="restricted">restricted.jsp</result>
+        </action>
+        
+        <action name="modify_user" method="execute" class="actionsupportpackage.ModifyUserActionSupport">
+            <interceptor-ref name="loginStack"/>
+            <result name="success" type="chain">list_user</result>
+            <result name="error">login.jsp</result>
+            <result name="restricted">restricted.jsp</result>
+        </action>
+        
+    </package>
+    <constant name="struts.ui.theme" value="simple" />
+</struts>
