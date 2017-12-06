@@ -1,5 +1,4 @@
 package entity;
-// Generated 03-dic-2017 20:46:53 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -92,9 +91,7 @@ public class User  implements java.io.Serializable {
         this.type = type;
     }
     public Set getExercises() {
-        return this.exercises;
     }
-    
     public void setExercises(Set exercises) {
         this.exercises = exercises;
     }

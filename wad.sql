@@ -16,11 +16,11 @@ CREATE SCHEMA IF NOT EXISTS `wad` DEFAULT CHARACTER SET utf8 ;
 USE `wad` ;
 
 -- -----------------------------------------------------
--- Table `wad`.`user`
+-- Table `wad`.`User`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `wad`.`user` ;
+DROP TABLE IF EXISTS `wad`.`User` ;
 
-CREATE TABLE IF NOT EXISTS `wad`.`user` (
+CREATE TABLE IF NOT EXISTS `wad`.`User` (
   `idUser` INT(11) NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(25) NULL DEFAULT NULL,
   `password` VARCHAR(50) NULL DEFAULT NULL,
@@ -46,10 +46,10 @@ CREATE TABLE IF NOT EXISTS `wad`.`Exercise` (
   `columns` INT NULL,
   `rows` INT NULL,
   PRIMARY KEY (`idExercise`),
-  INDEX `fk_Exercise_user_idx` (`idUser` ASC),
-  CONSTRAINT `fk_Exercise_user`
+  INDEX `fk_Exercise_User_idx` (`idUser` ASC),
+  CONSTRAINT `fk_Exercise_User`
     FOREIGN KEY (`idUser`)
-    REFERENCES `wad`.`user` (`idUser`)
+    REFERENCES `wad`.`User` (`idUser`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
@@ -75,21 +75,57 @@ CREATE TABLE IF NOT EXISTS `wad`.`Selected` (
 ENGINE = InnoDB;
 
 
+-- -----------------------------------------------------
+-- Table `wad`.`Group`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `wad`.`Group` ;
+
+CREATE TABLE IF NOT EXISTS `wad`.`Group` (
+  `idGroup` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NULL,
+  PRIMARY KEY (`idGroup`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `wad`.`UserGroup`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `wad`.`UserGroup` ;
+
+CREATE TABLE IF NOT EXISTS `wad`.`UserGroup` (
+  `idGroup` INT NOT NULL,
+  `idUser` INT(11) NOT NULL,
+  PRIMARY KEY (`idGroup`, `idUser`),
+  INDEX `fk_UserGroup_user_idx` (`idUser` ASC),
+  INDEX `fk_UserGroup_Group_idx` (`idGroup` ASC),
+  CONSTRAINT `fk_UserGroup_Group`
+    FOREIGN KEY (`idGroup`)
+    REFERENCES `wad`.`Group` (`idGroup`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_UserGroup_user`
+    FOREIGN KEY (`idUser`)
+    REFERENCES `wad`.`User` (`idUser`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 -- -----------------------------------------------------
--- Data for table `wad`.`user`
+-- Data for table `wad`.`User`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `wad`;
-INSERT INTO `wad`.`user` (`idUser`, `username`, `password`, `email`, `firstname`, `lastname`, `type`) VALUES (DEFAULT, 'admin', 'admin', 'admin@admin.com', 'Administrador', '-', 1);
-INSERT INTO `wad`.`user` (`idUser`, `username`, `password`, `email`, `firstname`, `lastname`, `type`) VALUES (DEFAULT, 'juanzv', 'contrasenasegura', 'juanjoze0424@gmail.com', 'Juan', 'Zenón', 1);
-INSERT INTO `wad`.`user` (`idUser`, `username`, `password`, `email`, `firstname`, `lastname`, `type`) VALUES (DEFAULT, 'ximeML', 'Shalala1', 'ximmelu@hotmail.com', 'Ana Ximena', 'Medina Luqueño', 1);
-INSERT INTO `wad`.`user` (`idUser`, `username`, `password`, `email`, `firstname`, `lastname`, `type`) VALUES (DEFAULT, 'idaliaMC', 'contrasenaidalia', 'iadlia@live.com', 'Idalia', 'Maldonado Castillo', 2);
-INSERT INTO `wad`.`user` (`idUser`, `username`, `password`, `email`, `firstname`, `lastname`, `type`) VALUES (DEFAULT, 'arielLR', 'contrasenaariel', 'ariel@gmail.com', 'Ariel', 'López Rojas', 2);
-INSERT INTO `wad`.`user` (`idUser`, `username`, `password`, `email`, `firstname`, `lastname`, `type`) VALUES (DEFAULT, 'axelMC', 'contrasenaaxel', 'axel@outlook.com', 'Axel Ernesto', 'Moreno Cervantes', 2);
+INSERT INTO `wad`.`User` (`idUser`, `username`, `password`, `email`, `firstname`, `lastname`, `type`) VALUES (DEFAULT, 'admin', 'admin', 'admin@admin.com', 'Administrador', '-', 1);
+INSERT INTO `wad`.`User` (`idUser`, `username`, `password`, `email`, `firstname`, `lastname`, `type`) VALUES (DEFAULT, 'juanzv', 'contrasenasegura', 'juanjoze0424@gmail.com', 'Juan', 'Zenón', 1);
+INSERT INTO `wad`.`User` (`idUser`, `username`, `password`, `email`, `firstname`, `lastname`, `type`) VALUES (DEFAULT, 'ximeML', 'Shalala1', 'ximmelu@hotmail.com', 'Ana Ximena', 'Medina Luqueño', 1);
+INSERT INTO `wad`.`User` (`idUser`, `username`, `password`, `email`, `firstname`, `lastname`, `type`) VALUES (DEFAULT, 'idaliaMC', 'contrasenaidalia', 'iadlia@live.com', 'Idalia', 'Maldonado Castillo', 2);
+INSERT INTO `wad`.`User` (`idUser`, `username`, `password`, `email`, `firstname`, `lastname`, `type`) VALUES (DEFAULT, 'arielLR', 'contrasenaariel', 'ariel@gmail.com', 'Ariel', 'López Rojas', 2);
+INSERT INTO `wad`.`User` (`idUser`, `username`, `password`, `email`, `firstname`, `lastname`, `type`) VALUES (DEFAULT, 'axelMC', 'contrasenaaxel', 'axel@outlook.com', 'Axel Ernesto', 'Moreno Cervantes', 2);
 
 COMMIT;
 

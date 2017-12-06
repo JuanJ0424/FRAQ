@@ -48,8 +48,9 @@ Contributor(s):
     <property name="hibernate.connection.password">admin</property>
     <property name="hbernate.connection_pool.size">30</property>
     <!--<property name="hibernate..hbm2dd1.auto">update</property>-->
-    <mapping resource="entity/Exercise.hbm.xml"/>
     <mapping resource="entity/User.hbm.xml"/>
+    <mapping resource="entity/Exercise.hbm.xml"/>
+    <mapping resource="entity/Group.hbm.xml"/>
     <mapping resource="entity/Selected.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

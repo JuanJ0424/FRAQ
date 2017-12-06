@@ -64,5 +64,18 @@
                 <br />
             </div>
         </div>
+        <script src="assets/js/app.js"></script>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
     </body>
 </html>
