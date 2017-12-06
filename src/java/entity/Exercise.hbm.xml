@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-dic-2017 21:13:11 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entity.Exercise" table="Exercise" catalog="wad" optimistic-lock="version">
+        <id name="idExercise" type="java.lang.Integer">
+            <column name="idExercise" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="user" class="entity.User" fetch="select" cascade="save-update">
+            <column name="idUser" not-null="true" />
+        </many-to-one>
+        <property name="type" type="java.lang.Integer">
+            <column name="type" />
+        </property>
+        <property name="columns" type="java.lang.Integer">
+            <column name="columns" />
+        </property>
+        <property name="rows" type="java.lang.Integer">
+            <column name="rows" />
+        </property>
+        <set name="selecteds" table="Selected" inverse="true" lazy="true" fetch="select" cascade="all">
+            <key>
+                <column name="idExercise" not-null="true" />
+            </key>
+            <one-to-many class="entity.Selected" />
+        </set>
+    </class>
+</hibernate-mapping>

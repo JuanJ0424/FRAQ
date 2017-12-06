@@ -1,4 +1,5 @@
 package entity;
+// Generated 05-dic-2017 21:13:10 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -18,10 +19,22 @@ public class User  implements java.io.Serializable {
      private String lastname;
      private Integer type;
      private Set exercises = new HashSet(0);
+     private Set groups = new HashSet(0);
 
     public User() {
     }
 
+    public User(String username, String password, String email, String firstname, String lastname, Integer type, Set exercises, Set groups) {
+       this.username = username;
+       this.password = password;
+       this.email = email;
+       this.firstname = firstname;
+       this.lastname = lastname;
+       this.type = type;
+       this.exercises = exercises;
+       this.groups = groups;
+    }
+    
     public User(String username, String password, String email, String firstname, String lastname, Integer type, Set exercises) {
        this.username = username;
        this.password = password;
@@ -30,6 +43,16 @@ public class User  implements java.io.Serializable {
        this.lastname = lastname;
        this.type = type;
        this.exercises = exercises;
+    }
+    
+    public User(String username, String password, String email, String firstname, String lastname, Set groups, Integer type) {
+       this.username = username;
+       this.password = password;
+       this.email = email;
+       this.firstname = firstname;
+       this.lastname = lastname;
+       this.type = type;
+       this.groups = groups;
     }
     
     public User(String username, String password, String email, String firstname, String lastname, Integer type) {
@@ -90,10 +113,21 @@ public class User  implements java.io.Serializable {
     public void setType(Integer type) {
         this.type = type;
     }
+
     public Set getExercises() {
+        return exercises;
     }
+
     public void setExercises(Set exercises) {
         this.exercises = exercises;
+    }
+
+    public Set getGroups() {
+        return groups;
+    }
+
+    public void setGroups(Set groups) {
+        this.groups = groups;
     }
 
 
