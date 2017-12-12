@@ -4,23 +4,92 @@
     Author     : Ximena
 --%>
 
+
 <%@taglib  uri="/struts-tags" prefix="s" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Panel de docencia</title>
+<head>
+        <meta charset='utf-8' />
+        <meta http-equiv='x-ua-compatible' content='ie=edge'>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+        <title>FRAQ | Profesor</title>
+        <link rel='stylesheet' href='assets/css/app.css'>
+        <script src='assets/js/app.js'></script>
     </head>
     <body>
-        <h1>PANEL DE DOCENCIA</h1>
-        <%-- 
-        <s:form action="Login" >
-            <s:textfield name="username" key="Username: " />
-            <s:password name="password" key="Password: " />
-            <s:submit value="User" />
-            <s:actionerror  />
-        </s:form>
-        --%>
+        <br />
+        <header class='sticky-shrinknav-header'>
+            <img class="sticky-shrinknav-header-title logo" src='assets/img/logos/fraq.png'>
+            <ul class='menu align-center sticky-shrinknav-menu'>
+                <li><a href=''>Inicio</a></li>
+                <li><a href=''>Acerca de </a></li>
+                <li><a href='logout.action'>Cerrar sesión</a></li>
+            </ul>
+        </header>
+        
+        <div class='row'>
+            <div class='large-12 columns text-center'>
+                <h1>Panel de profesor</h1>
+            </div>
+        </div>
+        
+        
+        <div class='row'>
+            <div class='medium-3 primary callout text-center'>
+                <a href="<s:url action="new-exercise-page"/>" >Nuevo ejercicio</a>
+            </div>
+        </div>
+        
+        <br />
+        <br />
+        
+        <div class='row'>
+            <div class='medium-10 medium-offset-1'>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Id Ejercicio</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <s:iterator value="list" id="exercise">
+                            <s:url action="delete_exercise.action" var="urldelete">
+                                <s:param name="idExercise">
+                                    <s:property value="#exercise.idExercise" />
+                                </s:param>
+                            </s:url>
+                            
+                            <s:url action="edit-exercise-page" var="urlmodify" escapeAmp="false">
+                                <s:param name="idExercise">
+                                    <s:property value="#exercise.idExercise" />
+                                </s:param>
+                                <s:param name="rows">
+                                    <s:property value="#exercise.rows" />
+                                </s:param>
+                                <s:param name="columns">
+                                    <s:property value="#exercise.columns" />
+                                </s:param>
+                                <s:param name="selecteds">
+                                    <s:property value="#exercise.selecteds.size" />
+                                </s:param>
+                            </s:url>
+                                <tr>
+                                    <td>
+                                        <s:property value="#exercise.idExercise" />
+                                    </td>
+                                    <td>
+                                        <a href="<s:property value="#urldelete" />"> Delete </a>
+                                    </td>
+                                    <td>
+                                        <a href="<s:property value="#urlmodify" />"> Modify </a>
+                                    </td>
+                                </tr>
+                        </s:iterator>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </body>
 </html>

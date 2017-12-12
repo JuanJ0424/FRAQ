@@ -19,12 +19,12 @@
     <body>
         <br />
         <header class='sticky-shrinknav-header'>
-            <img class="sticky-shrinknav-header-title logo" src='assets/img/logos/omic.png'>
+            <img class="sticky-shrinknav-header-title logo" src='assets/img/logos/fraq.png'>
             <ul class='menu align-center sticky-shrinknav-menu'>
                 <li><a href='#'>Inicio</a></li>
                 <li><a href='#'>Acerca de </a></li>
-                <li><a href='list_user.action'>Panel de administración</a></li>
-                <li><a href='logout.action'>Cerrar sesión</a></li>
+                <li><a href='<s:url action="list_user"/>'Panel de administración</a></li>
+                <li><a href='<s:url action="logout"/>'>Cerrar sesión</a></li>
             </ul>
         </header>
         <div class='row'>
@@ -108,6 +108,14 @@
                 </div>
             </div>
         </s:form>
-        
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
     </body>
 </html>

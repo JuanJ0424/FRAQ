@@ -3,6 +3,9 @@ package entity;
 
 import java.util.HashSet;
 import java.util.Set;
+import javax.persistence.CascadeType;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 
 
@@ -100,6 +103,10 @@ public class Exercise  implements java.io.Serializable {
 
     public void setSelecteds(Set selecteds) {
         this.selecteds = selecteds;
+    }
+    
+    public void addSelected(Selected s) {
+        this.selecteds.add(s);
     }
 
 

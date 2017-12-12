@@ -8,7 +8,7 @@
             <column name="idExercise" />
             <generator class="identity" />
         </id>
-        <many-to-one name="user" class="entity.User" fetch="select" cascade="save-update">
+        <many-to-one name="user" class="entity.User" fetch="select">
             <column name="idUser" not-null="true" />
         </many-to-one>
         <property name="type" type="java.lang.Integer">
@@ -20,7 +20,7 @@
         <property name="rows" type="java.lang.Integer">
             <column name="rows" />
         </property>
-        <set name="selecteds" table="Selected" inverse="true" lazy="true" fetch="select" cascade="all">
+        <set name="selecteds" table="Selected" inverse="true" lazy="true" cascade="all" fetch="join">
             <key>
                 <column name="idExercise" not-null="true" />
             </key>

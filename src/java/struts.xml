@@ -35,14 +35,22 @@
             <interceptor-ref name="loginStack"/>
             <result>/WEB-INF/pages/teacher.jsp</result>
         </action>
-        
+        <action name="new-exercise-page">
+            <interceptor-ref name="loginStack"/>
+            <result>/WEB-INF/pages/build_fraction.jsp</result>
+        </action>
+        <action name="edit-exercise-page">
+            <interceptor-ref name="loginStack"/>
+            <result>/WEB-INF/pages/edit_fraction.jsp</result>
+        </action>
 
     
         <action name="login" method="login" class="actionsupportpackage.LoginActionSupport">
             <result name="admin" type="chain">list_user</result>
-            <result name="teacher" type="chain">teacher</result>
+            <result name="teacher" type="redirect">teacher-panel</result>
             <result name="error">login.jsp</result>
         </action>
+        
         <action name="logout" method="logout" class="actionsupportpackage.LoginActionSupport">
             <result name="success">login.jsp</result>
         </action>
@@ -50,6 +58,11 @@
         <action name="list_user" method="execute" class="actionsupportpackage.UserListActionSupport">
             <interceptor-ref name="loginStack"/>
             <result name="success" type="chain">admin</result>
+        </action>
+        
+        <action name="teacher-panel" method="execute" class="actionsupportpackage.TeacherPanelActionSupport">
+            <result name="success" type="chain">teacher</result>
+            <result name="error">login.jsp</result>
         </action>
         
         <action name="insert_user" method="execute" class="actionsupportpackage.InsertUserActionSupport">
@@ -72,6 +85,19 @@
             <result name="restricted">restricted.jsp</result>
         </action>
         
+        <action name="delete_exercise" method="execute" class="actionsupportpackage.DeleteExerciseActionSupport">
+            <interceptor-ref name="loginStack"/>
+            <result name="success" type="chain">teacher-panel</result>
+        </action>
+        
+        <action name="new-exercise" method="execute" class="actionsupportpackage.NewExerciseActionSupport">
+            <interceptor-ref name="loginStack"/>
+            <result name="success" type="redirect">teacher-panel</result>
+        </action>
+        <action name="edit-exercise" method="execute" class="actionsupportpackage.EditExerciseActionSupport">
+            <interceptor-ref name="loginStack"/>
+            <result name="success" type="redirect">teacher-panel</result>
+        </action>
     </package>
     <constant name="struts.ui.theme" value="simple" />
 </struts>

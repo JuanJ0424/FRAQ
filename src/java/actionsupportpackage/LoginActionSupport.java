@@ -44,10 +44,13 @@ public class LoginActionSupport extends ActionSupport implements SessionAware{
         Transaction t1 = hibernateSession.beginTransaction();
         login = (User) hibernateSession.createQuery("FROM User WHERE username ='" + username + "'AND password ='" + password + "'").uniqueResult();
         t1.commit();
+        hibernateSession.close();
  
         if(username!=null && password!=null &&(!username.equals(""))&&(!password.equals(""))){
             if(login!=null){
                 sessionMap.put("current_user", login);
+                System.out.println("---------------SE PUSO EL CURRENT USER EN LA SESSION ------------");
+                System.out.println(sessionMap.get("current_user"));
                 switch(login.getType()){
                     case 1: 
                         sessionMap.put("type", 1);

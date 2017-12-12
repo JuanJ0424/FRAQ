@@ -18,7 +18,7 @@
     <body>
         <br/>
         <header class='sticky-shrinknav-header'>
-            <img class="sticky-shrinknav-header-title logo" src='assets/img/logos/omic.png'>
+            <img class="sticky-shrinknav-header-title logo" src='assets/img/logos/fraq.png'>
             <ul class='menu align-center sticky-shrinknav-menu'>
                 <li><a href='#'>Inicio</a></li>
                 <li><a href='#'>Acerca de </a></li>

@@ -127,5 +127,9 @@ INSERT INTO `wad`.`User` (`idUser`, `username`, `password`, `email`, `firstname`
 INSERT INTO `wad`.`User` (`idUser`, `username`, `password`, `email`, `firstname`, `lastname`, `type`) VALUES (DEFAULT, 'arielLR', 'contrasenaariel', 'ariel@gmail.com', 'Ariel', 'López Rojas', 2);
 INSERT INTO `wad`.`User` (`idUser`, `username`, `password`, `email`, `firstname`, `lastname`, `type`) VALUES (DEFAULT, 'axelMC', 'contrasenaaxel', 'axel@outlook.com', 'Axel Ernesto', 'Moreno Cervantes', 2);
 
+GRANT ALL ON wad.* TO admin@localhost
+IDENTIFIED BY 'admin';
+
+
 COMMIT;
 

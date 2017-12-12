@@ -18,19 +18,16 @@ public class Selected  implements java.io.Serializable {
     }
 
 	
-    public Selected(int idSelected, Exercise exercise) {
-        this.idSelected = idSelected;
+    public Selected(Exercise exercise) {
         this.exercise = exercise;
     }
-    public Selected(int idSelected, Exercise idExercise, Integer x, Integer y) {
-       this.idSelected = idSelected;
+    public Selected(Exercise exercise, Integer x, Integer y) {
        this.exercise = exercise;
        this.x = x;
        this.y = y;
     }
     
-    public Selected(int idSelected, Exercise idExercise, Integer x) {
-       this.idSelected = idSelected;
+    public Selected(Exercise exercise, Integer x) {
        this.exercise = exercise;
        this.x = x;
     }
