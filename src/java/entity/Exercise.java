@@ -15,9 +15,10 @@ import javax.persistence.OneToMany;
  */
 public class Exercise  implements java.io.Serializable {
 
-
+    
      private Integer idExercise;
      private User user;
+     private String name;
      private Integer type;
      private Integer columns;
      private Integer rows;
@@ -109,6 +110,15 @@ public class Exercise  implements java.io.Serializable {
         this.selecteds.add(s);
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    
+    
 
 
 

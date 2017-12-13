@@ -35,9 +35,13 @@
             <interceptor-ref name="loginStack"/>
             <result>/WEB-INF/pages/teacher.jsp</result>
         </action>
-        <action name="new-exercise-page">
+        <action name="build-fraction-page">
             <interceptor-ref name="loginStack"/>
             <result>/WEB-INF/pages/build_fraction.jsp</result>
+        </action>
+        <action name="new-exercise-page">
+            <interceptor-ref name="loginStack"/>
+            <result>/WEB-INF/pages/new_exercise.jsp</result>
         </action>
         <action name="edit-exercise-page">
             <interceptor-ref name="loginStack"/>

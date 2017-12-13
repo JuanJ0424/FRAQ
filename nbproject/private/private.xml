@@ -3,24 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/Users/Juan/Documents/ESCOM/Quinto/WAD/WAD_Project/web/WEB-INF/pages/admin.jsp</file>
             <file>file:/Users/Juan/Documents/ESCOM/Quinto/WAD/WAD_Project/web/WEB-INF/pages/build_fraction.jsp</file>
-            <file>file:/Users/Juan/Documents/ESCOM/Quinto/WAD/WAD_Project/src/java/entity/Selected.hbm.xml</file>
             <file>file:/Users/Juan/Documents/ESCOM/Quinto/WAD/WAD_Project/src/java/entity/Exercise.hbm.xml</file>
             <file>file:/Users/Juan/Documents/ESCOM/Quinto/WAD/WAD_Project/web/WEB-INF/pages/modify_user.jsp</file>
             <file>file:/Users/Juan/Documents/ESCOM/Quinto/WAD/WAD_Project/web/WEB-INF/pages/edit_fraction.jsp</file>
+            <file>file:/Users/Juan/Documents/ESCOM/Quinto/WAD/WAD_Project/web/WEB-INF/pages/new_user.jsp</file>
             <file>file:/Users/Juan/Documents/ESCOM/Quinto/WAD/WAD_Project/web/WEB-INF/pages/teacher.jsp</file>
-            <file>file:/Users/Juan/Documents/ESCOM/Quinto/WAD/WAD_Project/src/java/actionsupportpackage/LoginActionSupport.java</file>
             <file>file:/Users/Juan/Documents/ESCOM/Quinto/WAD/WAD_Project/src/java/entity/User.hbm.xml</file>
             <file>file:/Users/Juan/Documents/ESCOM/Quinto/WAD/WAD_Project/src/java/struts.xml</file>
-            <file>file:/Users/Juan/Documents/ESCOM/Quinto/WAD/WAD_Project/src/java/entity/Group.hbm.xml</file>
             <file>file:/Users/Juan/Documents/ESCOM/Quinto/WAD/WAD_Project/src/java/entity/Exercise.java</file>
-            <file>file:/Users/Juan/Documents/ESCOM/Quinto/WAD/WAD_Project/web/WEB-INF/pages/new_diagram.jsp</file>
             <file>file:/Users/Juan/Documents/ESCOM/Quinto/WAD/WAD_Project/src/java/entity/User.java</file>
-            <file>file:/Users/Juan/Documents/ESCOM/Quinto/WAD/WAD_Project/src/java/actionsupportpackage/EditExerciseActionSupport.java</file>
-            <file>file:/Users/Juan/Documents/ESCOM/Quinto/WAD/WAD_Project/src/java/entity/Selected.java</file>
-            <file>file:/Users/Juan/Documents/ESCOM/Quinto/WAD/WAD_Project/web/WEB-INF/web.xml</file>
+            <file>file:/Users/Juan/Documents/ESCOM/Quinto/WAD/WAD_Project/web/WEB-INF/pages/new_exercise.jsp</file>
             <file>file:/Users/Juan/Documents/ESCOM/Quinto/WAD/WAD_Project/src/java/actionsupportpackage/NewExerciseActionSupport.java</file>
-            <file>file:/Users/Juan/Documents/ESCOM/Quinto/WAD/WAD_Project/src/java/actionsupportpackage/TeacherPanelActionSupport.java</file>
         </group>
     </open-files>
 </project-private>

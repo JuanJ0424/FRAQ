@@ -48,7 +48,7 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Id Ejercicio</th>
+                            <th>Ejercicio</th>
                             <th></th>
                             <th></th>
                         </tr>
@@ -77,7 +77,7 @@
                             </s:url>
                                 <tr>
                                     <td>
-                                        <s:property value="#exercise.idExercise" />
+                                        <s:property value="#exercise.name" />
                                     </td>
                                     <td>
                                         <a href="<s:property value="#urldelete" />"> Delete </a>

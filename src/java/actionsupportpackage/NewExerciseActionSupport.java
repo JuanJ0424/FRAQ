@@ -26,6 +26,7 @@ public class NewExerciseActionSupport extends ActionSupport implements SessionAw
     private int columns;
     private int rows;
     private int selecteds;
+    private String name;
     
     public NewExerciseActionSupport() {
     }
@@ -35,6 +36,7 @@ public class NewExerciseActionSupport extends ActionSupport implements SessionAw
         User current_user = (User) sessionMap.get("current_user");
         System.out.println("Selecteds.size " + selecteds);
         Exercise e = new Exercise(current_user, 1, columns, rows);
+        e.setName(name);
         for (int i = 0; i<rows; i++ ) {
             for (int j = 0; j < columns; j++){
                 if(selecteds>0) {
@@ -82,6 +84,16 @@ public class NewExerciseActionSupport extends ActionSupport implements SessionAw
     public void setSelecteds(int selecteds) {
         this.selecteds = selecteds;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    
+    
 
     @Override
     public void setSession(Map<String, Object> map) {

@@ -40,9 +40,10 @@
         <s:hidden name="rows" id="rows"/>
         <s:hidden name="columns" id="columns"/>
         <s:hidden name="selecteds" id="selecteds"/>
+        <s:hidden name="name" id="name" value="%{#parameters.name}"/>
     </s:form>
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.7.20/fabric.min.js"></script>
+    <script src="assets/js/fabric.js"></script>
     <script src="assets/js/app.js"></script>
     <script src="assets/js/fraq.js"></script>
 </body>
