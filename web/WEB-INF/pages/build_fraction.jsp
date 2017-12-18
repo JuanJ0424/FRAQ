@@ -37,6 +37,7 @@
     
     <s:form action="new-exercise" method="post" id="form">
         <s:hidden name="idExercise" id="idExercise"/>
+        <s:hidden name="type" id="type" value="1"/>
         <s:hidden name="rows" id="rows"/>
         <s:hidden name="columns" id="columns"/>
         <s:hidden name="selecteds" id="selecteds"/>

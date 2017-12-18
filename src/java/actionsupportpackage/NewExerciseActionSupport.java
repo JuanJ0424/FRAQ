@@ -27,6 +27,7 @@ public class NewExerciseActionSupport extends ActionSupport implements SessionAw
     private int rows;
     private int selecteds;
     private String name;
+    private int type;
     
     public NewExerciseActionSupport() {
     }
@@ -35,7 +36,9 @@ public class NewExerciseActionSupport extends ActionSupport implements SessionAw
         System.out.println("----------- SE LLAMA A NEWEXERCISE ACTION ------------");
         User current_user = (User) sessionMap.get("current_user");
         System.out.println("Selecteds.size " + selecteds);
-        Exercise e = new Exercise(current_user, 1, columns, rows);
+        System.out.println("Type en parametro" + type);
+        
+        Exercise e = new Exercise(current_user, type, columns, rows);
         e.setName(name);
         for (int i = 0; i<rows; i++ ) {
             for (int j = 0; j < columns; j++){
@@ -91,6 +94,14 @@ public class NewExerciseActionSupport extends ActionSupport implements SessionAw
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
     }
     
     

@@ -49,6 +49,7 @@
                     <thead>
                         <tr>
                             <th>Ejercicio</th>
+                            <th>Tipo</th>
                             <th></th>
                             <th></th>
                         </tr>
@@ -74,10 +75,21 @@
                                 <s:param name="selecteds">
                                     <s:property value="#exercise.selecteds.size" />
                                 </s:param>
+                                <s:param name="type">
+                                    <s:property value="#exercise.type"/>
+                                </s:param>
                             </s:url>
                                 <tr>
                                     <td>
                                         <s:property value="#exercise.name" />
+                                    </td>
+                                    <td>
+                                        <s:if test="%{#exercise.type==0}">
+                                            Cuadrado
+                                        </s:if>
+                                        <s:else>
+                                            Circulo
+                                        </s:else>
                                     </td>
                                     <td>
                                         <a href="<s:property value="#urldelete" />"> Delete </a>

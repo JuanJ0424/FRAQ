@@ -24,6 +24,7 @@ public class EditExerciseActionSupport extends ActionSupport {
     private int rows;
     private int columns;
     private int selecteds;
+    private int type;
     
     public EditExerciseActionSupport() {
     }
@@ -59,6 +60,15 @@ public class EditExerciseActionSupport extends ActionSupport {
     public void setSelecteds(int selecteds) {
         this.selecteds = selecteds;
     }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
+    
     
     public String execute() throws Exception {
         System.out.println("--------- ACTUALIZANDO EJERCICIO------------");
@@ -68,6 +78,9 @@ public class EditExerciseActionSupport extends ActionSupport {
         Session hibernateSession = HibernateUtil.getSessionFactory().openSession();
         Transaction t = hibernateSession.beginTransaction();
         Exercise e = (Exercise) hibernateSession.load(Exercise.class, idExercise);
+        e.setRows(rows);
+        e.setColumns(columns);
+        e.setType(type);
         Iterator it = e.getSelecteds().iterator();
         while (it.hasNext()) {
             Selected s = (Selected) it.next();
